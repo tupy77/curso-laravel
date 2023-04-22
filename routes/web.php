@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', 'HomeController@index'); //ASI NO VA
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/test', function () {
-    return view('test', [
-        'title'=>'Curso Laravel de Platzi',
-        'creador'=>'Franci'
-    ]);
-});
+Route::get('/dashboard', [DashboardController::class, 'index']);
